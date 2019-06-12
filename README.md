@@ -1,9 +1,9 @@
 ![Cari Puskesmas](https://github.com/vickzkater/android-cari-puskesmas-a-star-algorithm/raw/master/CariPuskesmas/app/src/main/res/mipmap-hdpi/ic_launcher.png)
 
 # Cari Puskesmas - Aplikasi Android
-Aplikasi berbasis Android untuk mencari lokasi dan rute terpendek menuju Puskesmas terdekat dari posisi GPS perangkat dengan algoritma A-Star.
+Aplikasi berbasis Android untuk mencari lokasi dan rute terpendek menuju Puskesmas terdekat dari posisi GPS perangkat dengan algoritma A-Star
 
-Dibuat tahun 2017 dan diperbarui 2019
+Dibuat tahun 2017 oleh Vicky Budiman dan diperbarui 2019
 
 ## Abstrak
 Menurut Badan Pusat Statistik Provinsi DKI Jakarta, pertumbuhan penduduk di DKI Jakarta cukup signifikan tiap tahunnya. Salah satu aspek yang perlu diperhatikan untuk kesejahteraan masyarakat oleh pemerintah adalah kesehatan. Pemerintah telah menyediakan fasilitas kesehatan untuk masyarakat, salah satunya adalah Puskesmas. Namun keterbatasan informasi mengenai Puskesmas yang dimiliki oleh masyarakat menjadi kendala, seperti ketidaktahuan lokasi Puskesmas terdekat dan jalan yang harus ditempuh menuju Puskesmas. Penelitian ini menghasilkan aplikasi pencarian Puskesmas terdekat dan rute terpendek menuju Puskesmas dengan menerapkan algoritma A-Star. Algoritma A-Star merupakan salah satu algoritma pencarian graph terbaik yang mampu menemukan jalur dengan biaya pengeluaran/jarak paling sedikit dari titik permulaan yang diberikan sampai ke titik tujuan yang diharapkan. Setelah pengujian sebanyak 50 kali untuk menentukan rute terpendek antara algoritma A-Star dengan Google Maps menghasilkan 44 kali algoritma A-Star berhasil menampilkan rute terpendek dan 6 kali algoritma A-Star gagal menampilkan rute terpendek. Tingkat keberhasilan algoritma A-Star mencapai 80% sehingga dapat disimpulkan algoritma A-star berhasil menunjukkan jarak terpendek menuju Puskesmas tujuan.
@@ -20,7 +20,17 @@ Menurut Badan Pusat Statistik Provinsi DKI Jakarta, pertumbuhan penduduk di DKI 
 
 - [x] Android JAVA
 - [x] PHP
-- [x] Google Maps API
+- [x] Google Maps API (register developer API GMaps terlebih dulu)
+
+## Cara Menggunakan
+* Folder `CariPuskesmas` adalah source code untuk aplikasi Android (client)
+* Folder `web-server` adalah source code untuk server PHP
+* Buat database terlebih dahulu, lalu jalankan `cari_puskesmas.sql`
+* Selanjutnya buka source code Android untuk mengubah beberapa value yang diperlukan
+* Ubah nilai **Google Maps API Key** di file **google_maps_api.xml**
+* Ubah nilai **"url"** di file **ListActivity.java** dengan URL yang merujuk ke folder `web-server`, misalnya: `http://[YOUR_URL]/index.php?from=`
+* Ubah nilai **"url"** di file **RouteActivity.java** dengan URL yang merujuk ke folder `web-server`, misalnya: `http://[YOUR_URL]/index.php?from=`
+* Ubah nilai **Google Directions API Key** pada variabel **"googleApiKey"** di file **RouteActivity.java** (function **getDirectionsUrl**)
 
 ## Catatan Lain
 Data yang diberikan sebagai contoh adalah daftar lokasi Puskesmas di Provinsi DKI Jakarta saja sehingga aplikasi hanya dapat digunakan di wilayah DKI Jakarta saja. Bila ingin digunakan di wilayah lain, dapat dimasukkan data lokasi Puskesmas di daerah lainnya.
@@ -28,7 +38,6 @@ Data yang diberikan sebagai contoh adalah daftar lokasi Puskesmas di Provinsi DK
 ## Changelog
 
 1.1 (20/12/2017)
-- [x] Set your **Google Maps API Key** in **google_maps_api.xml**
 - [x] Using dependencies:
     *  `compile 'com.android.support:appcompat-v7:26.+'`
     *  `compile 'com.android.support:design:26.+'`
@@ -43,9 +52,6 @@ Data yang diberikan sebagai contoh adalah daftar lokasi Puskesmas di Provinsi DK
     *  `<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />`
     *  `<uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />`
     *  `<uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />`
-- [x] Change value **"url"** in **ListActivity.java** to your URL, example: `http://YOUR_URL/index.php?from=`
-- [x] Change value **"url"** in **RouteActivity.java** to your URL, example: `http://YOUR_URL/index.php?from=`
-- [x] Set your **Google Directions API Key** to variable **"googleApiKey"** in **RouteActivity.java** (function **getDirectionsUrl**)
 
 1.0 (21/11/2017)
 - [x] Initialize Project

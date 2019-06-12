@@ -1,0 +1,17 @@
+<resources>
+    <string name="app_name">Cari Puskesmas</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <string name="action_settings">Settings</string>
+    <string name="title_activity_maps">Map</string>
+
+    <string-array name="mode_transport">
+        <item>Roda Empat</item>
+        <item>Roda Dua</item>
+        <item>Pejalan Kaki</item>
+    </string-array>
+
+
+</resources>

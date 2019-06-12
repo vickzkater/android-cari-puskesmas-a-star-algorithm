@@ -1,0 +1,6 @@
+Workflow Application "Cari Puskesmas"
+
+1. Default: MainActivity > MainFragment
+2. Menu "Cari Puskesmas": MainFragment > ListActivity > RouteActivity
+3. Menu "Bantuan": HelpFragment
+4. Menu "Tentang": AboutFragment

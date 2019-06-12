@@ -1,0 +1,98 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context="com.vickzkater.caripuskesmas.AboutFragment">
+
+    <!-- TODO: Update blank fragment layout -->
+    <TextView
+        android:id="@+id/tvBantuan"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:text="Tentang"
+        android:textAlignment="center"
+        android:textAllCaps="true"
+        android:textSize="24sp"
+        android:textStyle="bold" />
+
+    <ImageView
+        android:id="@+id/logo"
+        android:layout_width="200px"
+        android:layout_height="200px"
+        android:layout_gravity="center"
+        app:srcCompat="@mipmap/ic_launcher"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="36dp" />
+
+    <TextView
+        android:id="@+id/textView6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="(Mohon aktifkan GPS untuk menggunakan aplikasi ini)"
+        android:textSize="14sp"
+        android:textStyle="italic"
+        android:layout_below="@+id/logo"
+        android:layout_centerHorizontal="true" />
+
+    <TextView
+        android:id="@+id/textView7"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        android:text="CARI PUSKESMAS"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:layout_below="@+id/logo"
+        android:layout_centerHorizontal="true" />
+
+    <TextView
+        android:id="@+id/textView8"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/textView7"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginLeft="10dp"
+        android:textSize="12sp"
+        android:text="* Aplikasi ini bertujuan untuk memberikan informasi kepada pengguna mengenai lokasi Puskesmas di sekitar lokasi pengguna saat menggunakan aplikasi ini serta rute terpendek menuju Puskesmas tersebut." />
+
+    <TextView
+        android:id="@+id/textView9"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/textView8"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginLeft="10dp"
+        android:textSize="12sp"
+        android:text="* Aplikasi ini menggunakan algoritma A-Star dalam mencari jarak dan rute terpendek dari lokasi pengguna menuju Puskesmas tujuan" />
+
+    <TextView
+        android:id="@+id/textView10"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/textView9"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginLeft="10dp"
+        android:textSize="12sp"
+        android:text=" * Aplikasi ini saat pertama kali dibangun hanya mendukung lokasi Puskesmas di wilayah DKI Jakarta (Versi 1.0 -  November 2017)" />
+
+    <TextView
+        android:id="@+id/textView11"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/textView10"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginLeft="10dp"
+        android:textSize="12sp"
+        android:text="* Aplikasi ini dirancang dan dibangun oleh\n   1) Vicky Budiman (vickybudiman25@gmail.com)\n   2) Yogi Swara (yogis170195@gmail.com)" />
+
+</RelativeLayout>

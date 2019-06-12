@@ -1,4 +1,4 @@
-![Cari Puskesmas](https://gitlab.com/vickzkater/cari-puskesmas/raw/master/CariPuskesmas/app/src/main/res/mipmap-hdpi/ic_launcher.png)
+![Cari Puskesmas](https://github.com/vickzkater/android-cari-puskesmas-a-star-algorithm/raw/master/CariPuskesmas/app/src/main/res/mipmap-hdpi/ic_launcher.png)
 
 # Cari Puskesmas - Aplikasi Android
 Aplikasi berbasis Android untuk mencari lokasi dan rute terpendek menuju Puskesmas terdekat dari posisi GPS perangkat dengan algoritma A-Star.

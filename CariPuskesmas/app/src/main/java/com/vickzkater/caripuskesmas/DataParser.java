@@ -149,20 +149,25 @@ public class DataParser {
     public List<String> parseListRoutes(int totalRoute, String jsonData)
     {
         List<String> routes = new ArrayList<>();
-        routes.add("1. Semua Rute");
-        JSONArray jsonArray = null;
-        JSONObject jsonObject;
-        String distance;
 
-        for(int i = 0; i<totalRoute; i++){
-            try {
-                jsonObject = new JSONObject(jsonData);
-                jsonArray = jsonObject.getJSONArray("routes").getJSONObject(i).getJSONArray("legs"); // show distance & duration
-                distance = jsonArray.getJSONObject(0).getJSONObject("distance").getString("text");
-                routes.add(String.valueOf(i+2)+". Jarak: "+distance);
-            } catch (JSONException e) {
-                e.printStackTrace();
+        if(totalRoute > 0) {
+            routes.add("1. Semua Rute");
+            JSONArray jsonArray = null;
+            JSONObject jsonObject;
+            String distance;
+
+            for (int i = 0; i < totalRoute; i++) {
+                try {
+                    jsonObject = new JSONObject(jsonData);
+                    jsonArray = jsonObject.getJSONArray("routes").getJSONObject(i).getJSONArray("legs"); // show distance & duration
+                    distance = jsonArray.getJSONObject(0).getJSONObject("distance").getString("text");
+                    routes.add(String.valueOf(i + 2) + ". Jarak: " + distance);
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
             }
+        }else{
+            routes.add("Tidak Ada Rute");
         }
 
         return routes;

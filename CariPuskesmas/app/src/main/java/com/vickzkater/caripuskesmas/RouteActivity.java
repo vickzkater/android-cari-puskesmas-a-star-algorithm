@@ -50,6 +50,7 @@ public class RouteActivity extends FragmentActivity implements OnMapReadyCallbac
         LocationListener
 {
 
+    private static final String TAG = "RouteActivity";
     private GoogleMap mMap;
     private GoogleApiClient client;
     private double lastLat = -6.1303444;
@@ -57,7 +58,6 @@ public class RouteActivity extends FragmentActivity implements OnMapReadyCallbac
     public static final int REQUEST_LOCATION_CODE = 99;
     MarkerOptions markerOptions = new MarkerOptions();
     String title;
-    //public static final String ID = "id";
     public static final String TITLE = "nama";
     public static final String LAT = "lat";
     public static final String LNG = "lng";
@@ -137,7 +137,7 @@ public class RouteActivity extends FragmentActivity implements OnMapReadyCallbac
                         }
                         mMap.setMyLocationEnabled(true);
                     }
-                    else //permission is denied
+                    else // permission is denied
                     {
                         Toast.makeText(this, "Permission is Denied!!!", Toast.LENGTH_LONG).show();
                     }
@@ -213,13 +213,13 @@ public class RouteActivity extends FragmentActivity implements OnMapReadyCallbac
         } catch (UnsupportedEncodingException e) {
             e.printStackTrace();
         }
-        String url = "http://YOUR_URL/index.php?from="+lastLat+","+lastLng+"&target="+query;
-        Log.d("myLog", "URL:"+url); // console log
+        String url = "http://[YOUR_URL]/index.php?from="+lastLat+","+lastLng+"&target="+query;
+        Log.d(TAG, "getMarkers - url >> "+url);
         StringRequest strReq = new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
 
             @Override
             public void onResponse(String response) {
-                Log.e("Response: ", response);
+                Log.d(TAG, "getMarkers - response >> "+response);
 
                 try {
                     JSONObject jObj = new JSONObject(response);
@@ -259,6 +259,9 @@ public class RouteActivity extends FragmentActivity implements OnMapReadyCallbac
                     Object dataTransfer[];
                     dataTransfer = new Object[3];
                     urlApi = getDirectionsUrl();
+
+                    Log.d(TAG, "getMarkers - urlApi >> "+urlApi);
+
                     GetDirectionsData getDirectionsData = new GetDirectionsData();
                     dataTransfer[0] = mMap;
                     dataTransfer[1] = urlApi;
@@ -275,12 +278,14 @@ public class RouteActivity extends FragmentActivity implements OnMapReadyCallbac
 
                     if(routeNo == 0){
                         getDirectionsData.execute(dataTransfer);
-                    }else{
+                        Toast.makeText(RouteActivity.this, "Rute telah berhasil ditampilkan", Toast.LENGTH_SHORT).show();
+                    }else if(routeNo > 0){
                         int pilihan = routeNo - 1;
                         getDirectionsData.displaySelectedRoute(pilihan, dataTransfer);
+                        Toast.makeText(RouteActivity.this, "Rute telah berhasil ditampilkan", Toast.LENGTH_SHORT).show();
+                    }else{
+                        Toast.makeText(RouteActivity.this, "Rute gagal ditampilkan", Toast.LENGTH_SHORT).show();
                     }
-
-                    Toast.makeText(RouteActivity.this, "Rute telah berhasil ditampilkan", Toast.LENGTH_SHORT).show();
                 } catch (JSONException e) {
                     // JSON error
                     e.printStackTrace();
@@ -291,7 +296,7 @@ public class RouteActivity extends FragmentActivity implements OnMapReadyCallbac
 
             @Override
             public void onErrorResponse(VolleyError error) {
-                Log.e("Error: ", error.getMessage());
+                Log.e("ERROR", error.getMessage());
                 Toast.makeText(RouteActivity.this, error.getMessage(), Toast.LENGTH_LONG).show();
             }
         });

@@ -50,6 +50,8 @@ public class ListActivity extends FragmentActivity implements OnMapReadyCallback
         GoogleApiClient.OnConnectionFailedListener,
         LocationListener
 {
+
+    private static final String TAG = "ListActivity";
     private GoogleMap mMap;
     private GoogleApiClient client;
     private double lastLat = -6.1303444;
@@ -197,13 +199,14 @@ public class ListActivity extends FragmentActivity implements OnMapReadyCallback
     }
 
     private void getMarkers() {
-        String url = "http://YOUR_URL/index.php?from="+lastLat+","+lastLng;
-        Log.d("myLog", "Post to URL:"+url); // console log
+        String url = "http://[YOUR_URL]/index.php?from="+lastLat+","+lastLng;
+        Log.d(TAG, "getMarkers - url >> "+url);
+
         StringRequest strReq = new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
 
             @Override
             public void onResponse(String response) {
-                Log.e("Response: ", response);
+                Log.d(TAG, "getMarkers - response >> "+response);
 
                 try {
                     Toast.makeText(ListActivity.this, "Sedang mencari...", Toast.LENGTH_SHORT).show();
@@ -272,7 +275,7 @@ public class ListActivity extends FragmentActivity implements OnMapReadyCallback
 
             @Override
             public void onErrorResponse(VolleyError error) {
-                Log.e("Error: ", error.getMessage());
+                Log.e("ERROR", error.getMessage());
                 Toast.makeText(ListActivity.this, error.getMessage(), Toast.LENGTH_LONG).show();
             }
         });

@@ -2,6 +2,7 @@ package com.vickzkater.caripuskesmas;
 
 import android.graphics.Color;
 import android.os.AsyncTask;
+import android.util.Log;
 
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.model.LatLng;
@@ -17,6 +18,7 @@ import java.util.List;
 
 public class GetDirectionsData extends AsyncTask<Object, String, String> {
 
+    private static final String TAG = "GetDirectionsData";
     GoogleMap mMap;
     String url;
     String googleDirectionsData;
@@ -30,9 +32,12 @@ public class GetDirectionsData extends AsyncTask<Object, String, String> {
         url = (String)objects[1];
         latLng = (LatLng)objects[2];
 
+        Log.d(TAG, "doInBackground - url >> "+url);
+
         DownloadUrl downloadUrl = new DownloadUrl();
         try {
             googleDirectionsData = downloadUrl.readUrl(url);
+            Log.d(TAG, "doInBackground - googleDirectionsData >> "+googleDirectionsData);
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -48,7 +53,7 @@ public class GetDirectionsData extends AsyncTask<Object, String, String> {
         totalRoutes = parser2.parseTotalDirections(s);
 
         // generate/display the route
-        for(int x=0; x<totalRoutes; x++){
+        for (int x = 0; x < totalRoutes; x++) {
             String[] directionsList;
             DataParser parser = new DataParser();
             directionsList = parser.parseDirections(s, x);

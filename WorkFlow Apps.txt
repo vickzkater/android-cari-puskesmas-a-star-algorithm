@@ -4,3 +4,4 @@ Workflow Application "Cari Puskesmas"
 2. Menu "Cari Puskesmas": MainFragment > ListActivity > RouteActivity
 3. Menu "Bantuan": HelpFragment
 4. Menu "Tentang": AboutFragment
+
